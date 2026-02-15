@@ -7,7 +7,6 @@ Cai them nginx de redirect 9392 sang 443. Dung chuan https:
 1. tao cert (luu y: days = 1096 ~3 nam): 
  sudo openssl req -x509 -nodes -newkey rsa:2048 -keyout /etc/ssl/private/openvas.local.key -out /etc/ssl/certs/openvas.local.crt -days 1096 -subj "/CN=openvas.local"
 
-===
 2. Tao Nginx site: 
 sudo tee /etc/nginx/sites-available/openvas.local.conf >/dev/null <<'EOF'
 server {
@@ -33,7 +32,8 @@ server {
 }
 EOF
 
-3. Enable site: sudo ln -sf /etc/nginx/sites-available/openvas.local.conf /etc/nginx/sites-enabled/openvas.local.conf
+3. Enable site:
+sudo ln -sf /etc/nginx/sites-available/openvas.local.conf /etc/nginx/sites-enabled/openvas.local.conf
 
 4. Test & reload nginx:
 sudo nginx -t
